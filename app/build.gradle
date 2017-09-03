@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.example.qwsone.androidmvp"
+        minSdkVersion 17
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:support-v4:25.3.0'
+
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
+    //compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.1'
+    // https://mvnrepository.com/artifact/io.reactivex/rxandroid
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+// https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+    compile group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.1.0' // Retrofit网络处理
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/adapter-rxjava
+    compile group: 'com.squareup.retrofit2', name: 'adapter-rxjava', version: '2.1.0' // Retrofit的rx解析库
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-jackson
+    compile group: 'com.squareup.retrofit2', name: 'converter-jackson', version: '2.1.0'
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.7.0'
+
+}

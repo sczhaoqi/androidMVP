@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidMVP</string>
+    <string name="bt_scanner">扫描</string>
+</resources>
